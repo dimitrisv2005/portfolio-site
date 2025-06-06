@@ -42,7 +42,7 @@
     header img {
       width: 220px;
       height: 220px;
-      border-radius: 32px; /* Στρογγυλεμένο παραλληλόγραμμο */
+      border-radius: 32px;
       object-fit: cover;
       border: 4px solid var(--primary-color);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
@@ -50,10 +50,9 @@
       transition: transform 0.3s ease;
     }
 
-  header img:hover {
-    transform: scale(1.03);
-  }
-
+    header img:hover {
+      transform: scale(1.03);
+    }
 
     header h2 {
       font-size: 1.5rem;
@@ -61,32 +60,41 @@
       font-weight: 600;
     }
 
-    button.toggle-btn {
+    .button-group {
+      display: flex;
+      gap: 12px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .toggle-btn {
       background-color: var(--button-bg);
       color: white;
       border: none;
-      padding: 12px 24px;
+      padding: 12px 20px;
       font-size: 1rem;
       border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-    button.toggle-btn:hover {
+    .toggle-btn:hover {
       background-color: var(--button-hover);
+      transform: scale(1.05);
     }
 
-    .cert-container {
+    .section-container {
       display: none;
       flex-direction: column;
       align-items: center;
-      gap: 15px;
-      margin-top: 25px;
+      gap: 12px;
+      margin-top: 15px;
       width: 100%;
       max-width: 400px;
     }
 
-    .cert-container a {
+    .section-container a {
       text-decoration: none;
       background-color: var(--primary-color);
       color: white;
@@ -94,12 +102,13 @@
       border-radius: 6px;
       width: 100%;
       text-align: center;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.2s ease;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .cert-container a:hover {
+    .section-container a:hover {
       background-color: #0056b3;
+      transform: scale(1.03);
     }
 
     @media (max-width: 600px) {
@@ -108,12 +117,13 @@
       }
 
       header img {
-        width: 120px;
-        height: 120px;
+        width: 160px;
+        height: 160px;
       }
 
-      .cert-container a {
+      .toggle-btn {
         font-size: 0.95rem;
+        padding: 10px 16px;
       }
     }
   </style>
@@ -126,18 +136,36 @@
     <h2>Δημήτρης Β.</h2>
   </header>
 
-  <button class="toggle-btn" onclick="toggleCerts()">Πιστοποιήσεις</button>
+  <div class="button-group">
+    <button class="toggle-btn" onclick="toggleSection('certs')">Πιστοποιήσεις</button>
+    <button class="toggle-btn" onclick="toggleSection('degrees')">Πτυχία</button>
+    <button class="toggle-btn" onclick="toggleSection('languages')">Ξένες Γλώσσες</button>
+  </div>
 
-  <div id="certs" class="cert-container">
+  <!-- Πιστοποιήσεις -->
+  <div id="certs" class="section-container">
     <a href="cert1.pdf" target="_blank">Πιστοποίηση JavaScript</a>
     <a href="cert2.pdf" target="_blank">Πιστοποίηση Python</a>
-    <a href="degree.pdf" target="_blank">Πτυχίο Πανεπιστημίου</a>
+  </div>
+
+  <!-- Πτυχία -->
+  <div id="degrees" class="section-container">
+    <a href="degree.pdf" target="_blank">Πτυχίο Πληροφορικής</a>
+  </div>
+
+  <!-- Ξένες Γλώσσες -->
+  <div id="languages" class="section-container">
+    <a href="english-cert.pdf" target="_blank">English B2</a>
+    <a href="german-cert.pdf" target="_blank">German A2</a>
   </div>
 
   <script>
-    function toggleCerts() {
-      const certSection = document.getElementById('certs');
-      certSection.style.display = (certSection.style.display === 'flex') ? 'none' : 'flex';
+    function toggleSection(sectionId) {
+      const sections = ['certs', 'degrees', 'languages'];
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        el.style.display = (id === sectionId && el.style.display !== 'flex') ? 'flex' : 'none';
+      });
     }
   </script>
 
