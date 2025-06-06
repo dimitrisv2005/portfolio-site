@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Το Πορτφόλιό Μου</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f4f8;
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      margin-top: 10px;
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 20px 0;
+      border: 3px solid #007BFF;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      background-color: #28a745;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .cert-btns {
+      display: none;
+      margin-top: 20px;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cert-btns a {
+      display: inline-block;
+      padding: 12px 20px;
+      width: 80%;
+      max-width: 300px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cert-btns a:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      img {
+        width: 120px;
+        height: 120px;
+      }
+
+      button, .cert-btns a {
+        width: 90%;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Το Πορτφόλιό Μου</h1>
+    <img src="profile.jpg" alt="Η εικόνα μου">
+    <h2>Το Όνομά Σου</h2>
+  </header>
+
+  <button onclick="toggleCertificates()">Πιστοποιήσεις</button>
+
+  <div id="certSection" class="cert-btns">
+    <a href="cert1.pdf" target="_blank">Πιστοποίηση 1</a>
+    <a href="cert2.pdf" target="_blank">Πιστοποίηση 2</a>
+    <a href="degree.pdf" target="_blank">Πτυχίο</a>
+  </div>
+
+  <script>
+    function toggleCertificates() {
+      const section = document.getElementById("certSection");
+      section.style.display = (section.style.display === "flex") ? "none" : "flex";
+    }
+  </script>
+
+</body>
+</html>
