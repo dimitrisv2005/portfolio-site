@@ -40,14 +40,20 @@
     }
 
     header img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
+      width: 220px;
+      height: 220px;
+      border-radius: 32px; /* Στρογγυλεμένο παραλληλόγραμμο */
       object-fit: cover;
       border: 4px solid var(--primary-color);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
       margin: 20px 0;
+      transition: transform 0.3s ease;
     }
+
+  header img:hover {
+    transform: scale(1.03);
+  }
+
 
     header h2 {
       font-size: 1.5rem;
