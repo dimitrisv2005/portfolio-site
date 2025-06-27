@@ -9,7 +9,7 @@
     :root {
       --primary-color: #007bff;
       --secondary-color: #f8f9fa;
-      --text-color: #333;
+      --text-color: #fff;
       --button-bg: #28a745;
       --button-hover: #218838;
     }
@@ -27,25 +27,23 @@
       flex-direction: column;
       align-items: center;
       padding: 30px 15px;
-
       background-image: url('background.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-attachment: fixed; /* σταθερή κατά την κύλιση */
-
+      background-attachment: fixed;
     }
 
     .overlay {
-    background-color: rgba(0, 0, 0, 0.25);  /* 25% μαύρο tint */
-    min-height: 100vh;
-    width: 100%;
-    padding: 30px 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-    
+      background-color: rgba(0, 0, 0, 0.6);  /* σκοτεινό tint */
+      min-height: 100vh;
+      width: 100%;
+      padding: 30px 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     header {
       text-align: center;
       margin-bottom: 30px;
@@ -54,6 +52,7 @@
     header h1 {
       font-size: 2.5rem;
       margin-bottom: 10px;
+      color: var(--text-color);
     }
 
     header img {
@@ -75,6 +74,7 @@
       font-size: 1.5rem;
       margin-top: 0;
       font-weight: 600;
+      color: var(--text-color);
     }
 
     .button-group {
@@ -146,34 +146,35 @@
   </style>
 </head>
 <body>
+  <div class="overlay">
+    <header>
+      <h1>Το Βιογραφικό μου</h1>
+      <img src="profile.jpg" alt="Εικόνα προφίλ">
+      <h2>Δημήτρης Βασίλτσης</h2>
+    </header>
 
-  <header>
-    <h1>Το Βιογραφικό μου</h1>
-    <img src="profile.jpg" alt="Εικόνα προφίλ">
-    <h2>Δημήτρης Βασίλτσης</h2>
-  </header>
+    <div class="button-group">
+      <button class="toggle-btn" onclick="toggleSection('certs')">Πιστοποιήσεις</button>
+      <button class="toggle-btn" onclick="toggleSection('degrees')">Πτυχία</button>
+      <button class="toggle-btn" onclick="toggleSection('languages')">Ξένες Γλώσσες</button>
+    </div>
 
-  <div class="button-group">
-    <button class="toggle-btn" onclick="toggleSection('certs')">Πιστοποιήσεις</button>
-    <button class="toggle-btn" onclick="toggleSection('degrees')">Πτυχία</button>
-    <button class="toggle-btn" onclick="toggleSection('languages')">Ξένες Γλώσσες</button>
-  </div>
+    <!-- Πιστοποιήσεις -->
+    <div id="certs" class="section-container">
+      <a href="cert1.pdf" target="_blank">Πιστοποίηση JavaScript</a>
+      <a href="cert2.pdf" target="_blank">Πιστοποίηση Python</a>
+    </div>
 
-  <!-- Πιστοποιήσεις -->
-  <div id="certs" class="section-container">
-    <a href="cert1.pdf" target="_blank">Πιστοποίηση JavaScript</a>
-    <a href="cert2.pdf" target="_blank">Πιστοποίηση Python</a>
-  </div>
+    <!-- Πτυχία -->
+    <div id="degrees" class="section-container">
+      <a href="degree.pdf" target="_blank">Πτυχίο Πληροφορικής</a>
+    </div>
 
-  <!-- Πτυχία -->
-  <div id="degrees" class="section-container">
-    <a href="degree.pdf" target="_blank">Πτυχίο Πληροφορικής</a>
-  </div>
-
-  <!-- Ξένες Γλώσσες -->
-  <div id="languages" class="section-container">
-    <a href="foreignlang/prof.pdf" target="_blank">ESB English Certificate C2</a>
-    <a href="german-cert.pdf" target="_blank">German A2</a>
+    <!-- Ξένες Γλώσσες -->
+    <div id="languages" class="section-container">
+      <a href="foreignlang/prof.pdf" target="_blank">ESB English Certificate C2</a>
+      <a href="german-cert.pdf" target="_blank">German A2</a>
+    </div>
   </div>
 
   <script>
@@ -185,6 +186,5 @@
       });
     }
   </script>
-
 </body>
 </html>
