@@ -178,7 +178,19 @@
     </div>
   </div>
 
-    <!-- Social Media Icons -->
+   
+
+  <script>
+    function toggleSection(sectionId) {
+      const sections = ['certs', 'degrees', 'languages'];
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        el.style.display = (id === sectionId && el.style.display !== 'flex') ? 'flex' : 'none';
+      });
+    }
+  </script>
+
+   <!-- Social Media Icons -->
     <div class="social-icons">
     <a href="https://www.linkedin.com/in/dimitrios-vasiltsis-313977287" target="_blank" aria-label="LinkedIn">
       <!-- LinkedIn Icon -->
@@ -247,16 +259,6 @@
       </svg>
     </a>
   </div>
-
-  <script>
-    function toggleSection(sectionId) {
-      const sections = ['certs', 'degrees', 'languages'];
-      sections.forEach(id => {
-        const el = document.getElementById(id);
-        el.style.display = (id === sectionId && el.style.display !== 'flex') ? 'flex' : 'none';
-      });
-    }
-  </script>
 
   <!-- Floating CV Button -->
 <a href="detailedCV/cv.pdf" target="_blank" class="toggle-btn cv-button">Detailed CV</a>
